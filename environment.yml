@@ -1,0 +1,15 @@
+name:  LatentQuant_env
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - jupyter
+  - pip:
+      - numpy
+      - chromadb
+      - openai
+      - currencyconverter
+      - python-dotenv
+      - pandas
+      - tabulate
