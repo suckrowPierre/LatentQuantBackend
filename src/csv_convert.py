@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import bank_pandas_dict as bank_dict
+import bank_data_processors as bank_dict
 
 
 def load_csvs_file_names(folder_path, full_path=False):

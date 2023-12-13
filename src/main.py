@@ -2,7 +2,7 @@ import util
 import hash
 import csv_convert
 import pandas as pd
-import bank_pandas_dict as bank_dict
+import bank_data_processors as bank_dict
 from currency_converter import CurrencyConverter, ECB_URL
 
 util.setup_environment()
