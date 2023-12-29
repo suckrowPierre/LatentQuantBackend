@@ -1,6 +1,12 @@
 import datetime
 import util
-
+import json as js
+def getBankDetails(path):
+    # read array of objects from json file
+    f = open(path)
+    data = js.load(f)
+    f.close()
+    return data
 
 def convert_comma_to_point(value):
     try:
@@ -23,13 +29,13 @@ def convert_string_date_to_date(value):
 #check this online conversion tools seem to differ for the same date
 def convert_currency(value, current_currency, target_currency, date, conversion_function=util.convert_currency):
     try:
-        return conversion_function(value + 1, current_currency, target_currency, date=get_conversion_datetime(date))
+        return conversion_function(value, current_currency, target_currency, date=get_conversion_datetime(date))
     except ValueError:
         return None
 
 
 bank_settings = {
-    "commerzbank": {
+    "commerzbank_de_1": {
         "dtype": {
             "Umsatzart": str,
             "Buchungstext": str,
@@ -45,10 +51,9 @@ bank_settings = {
         },
         "multi-column-converters": {
             "Betrag": (convert_currency, {"value": "Betrag", "current_currency": "Währung", "date": "Buchungstag"}, # commerzbank keine werstellungsdatum für zinsen
-                       {"target_currency": "USD"})
+                       {"target_currency": "EUR"})
         },
         "drop-columns": ["Währung"]
-
     }
 
 }

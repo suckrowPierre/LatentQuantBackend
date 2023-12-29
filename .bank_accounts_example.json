@@ -1,0 +1,11 @@
+[
+  {
+    "title": "title",
+    "description": "TODO",
+    "IBAN": "IBAN",
+    "accountNumber": "accountNumber",
+    "bankCode": "Code",
+    "csvDetectionRule": "accountNumber",
+    "bankDataProcessor": "commerzbank_de_1"
+  }
+]

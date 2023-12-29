@@ -2,7 +2,7 @@ import util
 import hash
 import csv_convert
 import pandas as pd
-import bank_data_processors as bank_dict
+import bank_data_processors as bank_processors
 from currency_converter import CurrencyConverter, ECB_URL
 
 util.setup_environment()
@@ -10,6 +10,7 @@ CURRENCY = util.get_database_currency()
 HASH_ALGORITHM = hash.get_hash_algorithm(util.get_hash_algorithm())
 HASH_PATH = util.get_hash_path()
 CSV_FILE_PATH = util.get_CSV_path()
+BANK_ACCOUNT_DETAILS_PATH = util.get_bank_account_details_path()
 
 
 
@@ -62,7 +63,11 @@ def main():
         get_csv_dicts_with_hash(csv_convert.load_csvs_file_names(CSV_FILE_PATH, full_path=True)))
 
     print(csv_dicts)
-    data = csv_convert.panda_read_csv(csv_dicts[0]["path"])
+
+    bank_details = bank_processors.getBankDetails(BANK_ACCOUNT_DETAILS_PATH)
+    print(bank_details)
+
+    # data = csv_convert.panda_read_csv(csv_dicts[0]["path"])
 
 
 if __name__ == "__main__":

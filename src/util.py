@@ -99,3 +99,13 @@ def get_hash_algorithm():
     :return: The hash algorithm.
     """
     return get_environment_variable("HASH_ALGORITHM")
+
+f
+def get_bank_account_details_path():
+    """
+    Get the path to the bank account details file from the environment variables.
+
+    :return: The path to the bank account details file.
+    """
+    return get_local_path("BANK_ACCOUNT_DETAILS")
+
